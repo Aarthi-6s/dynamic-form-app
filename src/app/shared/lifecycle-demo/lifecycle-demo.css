@@ -1,0 +1,21 @@
+.life-container {
+  background: #fdfdfd;
+  border: 2px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.log-box {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  border-left: 4px solid #007bff;
+}
+
+h3 {
+  text-align: center;
+}

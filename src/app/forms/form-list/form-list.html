@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Saved Forms</h2>
+
+  <div *ngIf="forms.length === 0" class="empty">
+    <p>No forms created yet!</p>
+    <a routerLink="/forms">Create a new form</a><br />
+    <a routerLink="/forms/mini" class="create-mini">Create Mini Form</a>
+  </div>
+
+  <ul *ngIf="forms.length > 0" class="form-list">
+    <li *ngFor="let form of forms; let i = index">
+      <h4>Form #{{ i + 1 }}</h4>
+
+      <ul>
+        <li *ngFor="let field of form.fields">
+          <strong>{{ field.label }}:</strong> {{ field.value }}
+        </li>
+      </ul>
+
+      <div class="actions">
+        <a [routerLink]="['/forms/detail', i]" class="detail-link">View Details</a>
+        <button (click)="editForm(i)">Edit</button>
+        <button (click)="deleteForm(i)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>

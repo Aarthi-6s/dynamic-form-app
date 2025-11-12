@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Template-Driven Mini Form</h2>
+
+  <form #miniForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" name="name" [(ngModel)]="formData.name" required />
+      <div *ngIf="miniForm.submitted && !formData.name" class="error">
+        Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" name="email" [(ngModel)]="formData.email" required />
+      <div *ngIf="miniForm.submitted && !formData.email" class="error">
+        Email is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Age:</label>
+      <input type="number" name="age" [(ngModel)]="formData.age" required />
+      <div *ngIf="miniForm.submitted && !formData.age" class="error">
+        Age is required
+      </div>
+    </div>
+
+    <button type="submit">💾 Save</button>
+  </form>
+  <a routerLink="/forms/list" class="back-link">⬅ Back to Forms List</a>
+</div>

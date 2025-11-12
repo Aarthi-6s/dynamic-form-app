@@ -1,0 +1,15 @@
+<div class="container" *ngIf="form; else notFound">
+  <h2>Form #{{ id + 1 }} Details</h2>
+  <ul>
+    <li *ngFor="let field of form.fields">
+      <strong>{{ field.label }}:</strong> {{ field.value }}
+    </li>
+  </ul>
+
+  <a routerLink="/forms/list" class="back-link">⬅ Back to Forms List</a>
+</div>
+
+<ng-template #notFound>
+  <p>Form not found!</p>
+  <a routerLink="/forms/list">Go back</a>
+</ng-template>

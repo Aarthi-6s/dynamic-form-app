@@ -1,0 +1,51 @@
+<div class="container">
+  <h2>{{ editId !== null ? 'Edit Dynamic Form' : 'Dynamic Form Builder' }}</h2>
+
+  <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="fields">
+      <div
+        *ngFor="let field of fields.controls; let i = index"
+        [formGroupName]="i"
+        class="form-group"
+      >
+        <label>{{ ('Field ' + (i + 1) + ' Label') | capitalize }}</label>
+<input
+  type="text"
+  formControlName="label"
+  placeholder="Enter field label"
+  [appHighlightInvalid]="!!(field.get('label')?.invalid && field.get('label')?.touched)"
+/>
+        <div class="error" *ngIf="field.get('label')?.errors && field.get('label')?.touched">
+          <small *ngIf="field.get('label')?.errors?.['required']">Label is required</small>
+          <small *ngIf="field.get('label')?.errors?.['minlength']">Label must be at least 3 characters</small>
+        </div>
+
+        <label>Value</label>
+<input
+  type="text"
+  formControlName="value"
+  placeholder="Enter value"
+  [appHighlightInvalid]="!!(field.get('value')?.invalid && field.get('value')?.touched)"
+/>
+        <div class="error" *ngIf="field.get('value')?.errors && field.get('value')?.touched">
+          <small *ngIf="field.get('value')?.errors?.['required']">Value is required</small>
+        </div>
+
+        <button type="button" (click)="removeField(i)">❌ Remove</button>
+      </div>
+    </div>
+
+    <!-- Duplicate label validation -->
+    <div class="error" *ngIf="dynamicForm.errors?.['duplicateLabel']">
+      <small>❗ Each label must be unique.</small>
+    </div>
+
+    <div class="actions">
+      <button type="button" (click)="addField()">➕ Add Field</button>
+      <button type="submit" [disabled]="dynamicForm.invalid">💾 Save</button>
+    </div>
+  </form>
+  <hr />
+<app-lifecycle-demo [demoValue]="dynamicForm.value | json"></app-lifecycle-demo>
+
+</div>
