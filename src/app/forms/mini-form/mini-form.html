@@ -28,5 +28,6 @@
 
     <button type="submit">💾 Save</button>
   </form>
-  <a routerLink="/forms/list" class="back-link">⬅ Back to Forms List</a>
+  <button class="create-dynamic" (click)="goToFormBuilder()">Create Dynamic Form</button>
+  <button class="back-link" (click)="goBackToList()">⬅ Back to Forms List</button>
 </div>

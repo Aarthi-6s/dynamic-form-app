@@ -1,9 +1,16 @@
 <div class="container" *ngIf="form; else notFound">
   <h2>Form #{{ id + 1 }} Details</h2>
   <ul>
-    <li *ngFor="let field of form.fields">
-      <strong>{{ field.label }}:</strong> {{ field.value }}
-    </li>
+    <ng-container *ngIf="form.fields; else miniFormFields">
+      <li *ngFor="let field of form.fields">
+        <strong>{{ field.label }}:</strong> {{ field.value }}
+      </li>
+    </ng-container>
+    <ng-template #miniFormFields>
+      <li><strong>Name:</strong> {{ form.name }}</li>
+      <li><strong>Email:</strong> {{ form.email }}</li>
+      <li><strong>Age:</strong> {{ form.age }}</li>
+    </ng-template>
   </ul>
 
   <a routerLink="/forms/list" class="back-link">⬅ Back to Forms List</a>

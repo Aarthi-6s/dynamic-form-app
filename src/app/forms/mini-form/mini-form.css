@@ -1,53 +1,106 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 .container {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  min-width: 600px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 24px;
+  color: #2a5298;
 }
 
 .form-group {
-  margin-bottom: 1rem;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 2pt;
+  margin-bottom: 18px;
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
+  font-size: 1.15rem;
+  padding: 8px 12px;
+  margin-right: 2pt;
+  border: 1px solid #b2bec3;
   border-radius: 6px;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #36d1c4;
+  outline: none;
+}
+
+input.invalid {
+  border: 1px solid #e74c3c;
+  background-color: #ffe6e6;
 }
 
 button {
-  display: block;
-  width: 100%;
-  padding: 0.6rem;
-  background-color: #007bff;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
   cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #36d1c4 0%, #5b86e5 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  transition: background 0.2s, transform 0.2s;
+  display: block;
+  margin: 18px auto 0 auto;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(90deg, #5b86e5 0%, #36d1c4 100%);
+  transform: translateY(-2px) scale(1.04);
 }
 
 .error {
-  color: red;
-  font-size: 0.85rem;
+  color: #e74c3c;
+  font-size: 0.95rem;
+  margin-top: 4px;
 }
 
 .back-link {
   display: block;
   margin-top: 1rem;
   text-align: center;
-  color: #007bff;
+  color: #5b86e5;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #36d1c4 0%, #5b86e5 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+.back-link:hover {
+  background: linear-gradient(90deg, #5b86e5 0%, #36d1c4 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
 }

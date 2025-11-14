@@ -33,14 +33,41 @@ h2 {
 .detail-link {
   display: inline-block;
   margin-top: 5px;
-  color: #007bff;
+  color: #5b86e5;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .detail-link:hover {
   text-decoration: underline;
+  color: #36d1c4;
 }
 
 .empty {
   text-align: center;
+  color: #2a5298;
+}
+button, .create-mini, .back-btn {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #36d1c4 0%, #5b86e5 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  transition: background 0.2s, transform 0.2s;
+  margin: 8px 4px;
+}
+
+button:hover:not(:disabled), .create-mini:hover, .back-btn:hover {
+  background: linear-gradient(90deg, #5b86e5 0%, #36d1c4 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #888;
 }

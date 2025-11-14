@@ -12,9 +12,7 @@ export const routes: Routes = [
   { path: 'forms/mini', component: MiniFormComponent },
   {
   path: 'settings',
-  loadComponent: () =>
+  loadComponent: () => //For lazy loading standalone: use loadComponent
     import('./settings/settings-home/settings-home').then(m => m.SettingsHomeComponent)
   }
-
-
 ];

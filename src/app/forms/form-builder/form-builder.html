@@ -1,6 +1,6 @@
 <div class="container">
+  <button class="create-mini" (click)="goToMiniForm()">Create Mini Form</button>
   <h2>{{ editId !== null ? 'Edit Dynamic Form' : 'Dynamic Form Builder' }}</h2>
-
   <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
     <div formArrayName="fields">
       <div
@@ -8,7 +8,7 @@
         [formGroupName]="i"
         class="form-group"
       >
-        <label>{{ ('Field ' + (i + 1) + ' Label') | capitalize }}</label>
+        <label>{{ ('Field ' + (i + 1)) + ':' | capitalize }}</label>
 <input
   type="text"
   formControlName="label"
@@ -20,7 +20,7 @@
           <small *ngIf="field.get('label')?.errors?.['minlength']">Label must be at least 3 characters</small>
         </div>
 
-        <label>Value</label>
+        <label> Value: </label>
 <input
   type="text"
   formControlName="value"
@@ -31,7 +31,7 @@
           <small *ngIf="field.get('value')?.errors?.['required']">Value is required</small>
         </div>
 
-        <button type="button" (click)="removeField(i)">❌ Remove</button>
+        <button type="button" (click)="removeField(i)"> Remove</button>
       </div>
     </div>
 

@@ -1,4 +1,5 @@
 <div class="container">
+  <button class="back-btn" (click)="goBack()">Back</button>
   <h2>Saved Forms</h2>
 
   <div *ngIf="forms.length === 0" class="empty">
@@ -10,13 +11,18 @@
   <ul *ngIf="forms.length > 0" class="form-list">
     <li *ngFor="let form of forms; let i = index">
       <h4>Form #{{ i + 1 }}</h4>
-
       <ul>
-        <li *ngFor="let field of form.fields">
-          <strong>{{ field.label }}:</strong> {{ field.value }}
-        </li>
+        <ng-container *ngIf="form.fields; else miniFormFields">
+          <li *ngFor="let field of form.fields">
+            <strong>{{ field.label }}:</strong> {{ field.value }}
+          </li>
+        </ng-container>
+        <ng-template #miniFormFields>
+          <li><strong>Name:</strong> {{ form.name }}</li>
+          <li><strong>Email:</strong> {{ form.email }}</li>
+          <li><strong>Age:</strong> {{ form.age }}</li>
+        </ng-template>
       </ul>
-
       <div class="actions">
         <a [routerLink]="['/forms/detail', i]" class="detail-link">View Details</a>
         <button (click)="editForm(i)">Edit</button>

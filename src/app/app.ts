@@ -10,5 +10,5 @@ import { LifecycleDemoComponent } from './shared/lifecycle-demo/lifecycle-demo';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('dynamic-form-app');
+  protected readonly title = signal('dynamic-form-app'); //Reactive state in Angular components
 }

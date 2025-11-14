@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
   styleUrl: './mini-form.css'
 })
 export class MiniFormComponent {
+  goToFormBuilder() {
+    this.router.navigate(['/forms']);
+  }
   formData = {
     name: '',
     email: '',
@@ -19,6 +22,10 @@ export class MiniFormComponent {
   };
 
   constructor(private formDataService: FormDataService, private router: Router) {}
+
+  goBackToList() {
+    this.router.navigate(['/forms/list']);
+  }
 
   onSubmit() {
     if (!this.formData.name || !this.formData.email || !this.formData.age) {

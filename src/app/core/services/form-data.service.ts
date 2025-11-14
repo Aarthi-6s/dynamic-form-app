@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-
+// Single service file is fine. If it grows, split helpers (storage util) into another file.
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' //for global single instance.
 })
 export class FormDataService {
   private storageKey = 'dynamicForms';

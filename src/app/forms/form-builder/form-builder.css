@@ -1,46 +1,106 @@
-.container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 30px auto;
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
+.container {
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  min-width: 600px;
+  margin: auto;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  color: #2a5298;
 }
 
+
 .form-group {
-  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 2pt;
+  margin-bottom: 18px;
+}
+
+
+input[type="text"] {
+  font-size: 1.15rem;
+  padding: 8px 12px;
+  margin-right: 2pt;
+  border: 1px solid #b2bec3;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: #36d1c4;
+  outline: none;
 }
 
 input.invalid {
-  border: 1px solid red;
+  border: 1px solid #e74c3c;
   background-color: #ffe6e6;
 }
 
+label {
+  font-weight: 500;
+  margin-right: 8px;
+  font-size: 1.08rem;
+}
+
+
 .error small {
-  color: red;
+  color: #e74c3c;
   display: block;
   margin-top: 4px;
 }
 
+
 .actions {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 24px;
 }
+
 
 button {
   cursor: pointer;
-  padding: 6px 12px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #36d1c4 0%, #5b86e5 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  transition: background 0.2s, transform 0.2s;
 }
+
+button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #5b86e5 0%, #36d1c4 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
 
 button[type='submit']:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  color: #888;
 }

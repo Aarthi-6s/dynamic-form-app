@@ -19,6 +19,10 @@ export class FormBuilderComponent implements OnInit {
   dynamicForm!: FormGroup;
   editId: number | null = null;
 
+  goToMiniForm() {
+    this.router.navigate(['/forms/mini']);
+  }
+
   constructor(
     private fb: FormBuilder,
     private formDataService: FormDataService,

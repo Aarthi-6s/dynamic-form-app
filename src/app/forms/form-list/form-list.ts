@@ -37,4 +37,7 @@ export class FormListComponent implements OnInit {
     // navigate to builder page with edit id
     this.router.navigate(['/forms'], { queryParams: { editId: index } });
   }
+  goBack() {
+    window.history.back();
+  }
 }
