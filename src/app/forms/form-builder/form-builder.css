@@ -1,106 +1,50 @@
-
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-  min-width: 600px;
-  margin: auto;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-
-h2 {
-  text-align: center;
-  margin-bottom: 24px;
-  color: #2a5298;
-}
-
-
-.form-group {
-  display: flex;
-  align-items: center;
-  gap: 2pt;
-  margin-bottom: 18px;
-}
-
-
-input[type="text"] {
-  font-size: 1.15rem;
-  padding: 8px 12px;
-  margin-right: 2pt;
-  border: 1px solid #b2bec3;
-  border-radius: 6px;
-  transition: border-color 0.2s;
-}
-
-input[type="text"]:focus {
-  border-color: #36d1c4;
-  outline: none;
-}
-
-input.invalid {
-  border: 1px solid #e74c3c;
-  background-color: #ffe6e6;
-}
-
-label {
-  font-weight: 500;
-  margin-right: 8px;
-  font-size: 1.08rem;
-}
-
-
-.error small {
-  color: #e74c3c;
-  display: block;
-  margin-top: 4px;
-}
-
-
-.actions {
-  display: flex;
-  justify-content: flex-start;
-  gap: 16px;
-  margin-top: 24px;
-}
-
-
-button {
-  cursor: pointer;
-  padding: 10px 20px;
-  border: none;
+/* Card styling */
+.custom-card {
+  background-color: #231a47;
+  border: 2px solid violet;
+  box-shadow: 0 0 15px violet;
+  color: white;
   border-radius: 8px;
-  background: linear-gradient(90deg, #36d1c4 0%, #5b86e5 100%);
+}
+
+/* Toast text color (white on dark background) */
+p-toast .p-toast-message {
+  color: white;
+}
+
+/* Buttons (PrimeNG) with card gradient/glow */
+p-button .p-button {
+  background: linear-gradient(135deg, #231a47, violet);
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 4px 10px violet;
+  transition: all 0.2s ease-in-out;
+}
+
+p-button .p-button:hover {
+  box-shadow: 0 6px 14px violet;
+  transform: translateY(-2px);
+}
+
+/* Form inputs */
+.form-control {
+  background-color: #1f153e;
+  color: white;
+  border: 1px solid violet;
+}
+
+.form-control:focus {
+  border-color: #8e2de2;
+  box-shadow: 0 0 5px violet;
+  background-color: #231a47;
+  color: white;
+}
+
+/* Duplicate label alert */
+.alert-warning {
+  background-color: #ffeb3b33;
+  border-color: #ffeb3b;
   color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
-  transition: background 0.2s, transform 0.2s;
-}
-
-button:hover:not(:disabled) {
-  background: linear-gradient(90deg, #5b86e5 0%, #36d1c4 100%);
-  transform: translateY(-2px) scale(1.04);
-}
-
-
-button[type='submit']:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-  color: #888;
+  font-weight: bold;
+  text-align: center;
 }

@@ -1,73 +1,36 @@
-.container {
-  max-width: 600px;
-  margin: 30px auto;
-  background: #fefefe;
-  padding: 20px;
+/* Card custom style */
+.custom-card {
+  background-color: #231a47; /* dark bg */
+  border: 2px solid violet; /* violet border */
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px violet; /* glowing violet */
 }
 
-h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+/* Buttons to match card gradient/glow */
+p-button .p-button {
+  background: linear-gradient(135deg, #231a47, violet); /* same gradient as card glow */
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 4px 10px violet; /* subtle glow */
+  transition: all 0.2s ease-in-out;
 }
 
-.form-list {
-  list-style: none;
-  padding: 0;
+p-button .p-button:hover {
+  box-shadow: 0 6px 14px violet; /* stronger glow on hover */
+  transform: translateY(-2px);
 }
 
-.form-list li {
-  background: #f9f9f9;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+/* Card list items */
+.custom-card ul li {
+  color: white;
 }
 
-.form-list ul {
-  margin-left: 15px;
-}
-
-.detail-link {
-  display: inline-block;
-  margin-top: 5px;
-  color: #5b86e5;
+/* Empty state links */
+.empty a.p-button-text {
+  color: violet;
   text-decoration: none;
-  font-weight: 600;
 }
 
-.detail-link:hover {
+.empty a.p-button-text:hover {
   text-decoration: underline;
-  color: #36d1c4;
-}
-
-.empty {
-  text-align: center;
-  color: #2a5298;
-}
-button, .create-mini, .back-btn {
-  cursor: pointer;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(90deg, #36d1c4 0%, #5b86e5 100%);
-  color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
-  transition: background 0.2s, transform 0.2s;
-  margin: 8px 4px;
-}
-
-button:hover:not(:disabled), .create-mini:hover, .back-btn:hover {
-  background: linear-gradient(90deg, #5b86e5 0%, #36d1c4 100%);
-  transform: translateY(-2px) scale(1.04);
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-  color: #888;
 }

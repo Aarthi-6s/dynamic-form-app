@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+.app-container {
+  background-color: #231a47;
+  min-height: 100vh;
+  color: white;
+  padding: 20px; /* optional */
+}

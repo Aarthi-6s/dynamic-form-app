@@ -1,22 +1,42 @@
-<div class="container" *ngIf="form; else notFound">
-  <h2>Form #{{ id + 1 }} Details</h2>
-  <ul>
-    <ng-container *ngIf="form.fields; else miniFormFields">
-      <li *ngFor="let field of form.fields">
-        <strong>{{ field.label }}:</strong> {{ field.value }}
-      </li>
-    </ng-container>
-    <ng-template #miniFormFields>
-      <li><strong>Name:</strong> {{ form.name }}</li>
-      <li><strong>Email:</strong> {{ form.email }}</li>
-      <li><strong>Age:</strong> {{ form.age }}</li>
-    </ng-template>
-  </ul>
+<div class="container my-4" *ngIf="form$ | async as form; else notFound">
 
-  <a routerLink="/forms/list" class="back-link">⬅ Back to Forms List</a>
+  <!-- Page Heading -->
+  <h2 class="mb-4 text-white text-center">Form #{{ id + 1 }} Details</h2>
+
+  <!-- Form Details Card -->
+  <p-card class="custom-card text-white mb-3" [style]="{ 'background-color': '#231a47', 'border': '2px solid', 'border-image': 'linear-gradient(45deg, violet, #8a2be2) 1', 'box-shadow': '0 0 15px violet' }">
+
+    <ul class="list-unstyled">
+      <!-- Dynamic Form Fields -->
+      <ng-container *ngIf="form.fields; else miniFormFields">
+        <li *ngFor="let field of form.fields" class="mb-2">
+          <strong>{{ field.label }}:</strong> {{ field.value }}
+        </li>
+      </ng-container>
+
+      <!-- Mini Form Fields -->
+      <ng-template #miniFormFields>
+        <li class="mb-2"><strong>Name:</strong> {{ form.name }}</li>
+        <li class="mb-2"><strong>Email:</strong> {{ form.email }}</li>
+        <li class="mb-2"><strong>Age:</strong> {{ form.age }}</li>
+        <li class="mb-2"><strong>Phone:</strong> {{ form.phone }}</li>
+        <li class="mb-2"><strong>Country:</strong> {{ form.country }}</li>
+        <li class="mb-2"><strong>Gender:</strong> {{ form.gender }}</li>
+      </ng-template>
+    </ul>
+
+    <!-- Back Button -->
+    <div class="mt-3">
+      <p-button label="⬅ Back to Forms List" class="custom-button" [routerLink]="'/forms/list'"></p-button>
+    </div>
+    
+  </p-card>
 </div>
 
+<!-- Form Not Found Template -->
 <ng-template #notFound>
-  <p>Form not found!</p>
-  <a routerLink="/forms/list">Go back</a>
+  <p-card class="custom-card text-white" [style]="{ 'background-color': '#231a47', 'border': '2px solid', 'border-image': 'linear-gradient(45deg, violet, #8a2be2) 1', 'box-shadow': '0 0 15px violet' }">
+    <p class="text-white">Form not found!</p>
+    <p-button label="Go back" class="custom-button" [routerLink]="'/forms/list'"></p-button>
+  </p-card>
 </ng-template>

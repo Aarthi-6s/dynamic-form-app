@@ -1,42 +1,67 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { FormDataService } from '../../core/services/form-data.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState } from '../../store/app.state';
+import { selectAllForms } from '../../store/form/form.selectors';
+import * as FormActions from '../../store/form/form.actions';
+
+ 
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-form-list',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ButtonModule, CardModule, DialogModule, ToastModule],
   templateUrl: './form-list.html',
-  styleUrl: './form-list.css'
+  styleUrls: ['./form-list.css'],
+  providers: [MessageService]
 })
 export class FormListComponent implements OnInit {
-  forms: any[] = [];
+  forms$!: Observable<any[]>;
+
+  // Dialog state
+  displayDelete: boolean = false;
+  deleteIndex: number | null = null;
 
   constructor(
-    private formDataService: FormDataService,
-    private router: Router
+    private store: Store<AppState>,
+    private router: Router,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
-    this.loadForms();
+    this.forms$ = this.store.select(selectAllForms);
   }
 
-  loadForms() {
-    this.forms = this.formDataService.getAllForms();
+  showDeleteDialog(index: number) {
+    this.deleteIndex = index;
+    this.displayDelete = true;
   }
 
-  deleteForm(index: number) {
-    if (confirm('Are you sure you want to delete this form?')) {
-      this.formDataService.deleteForm(index);
-      this.loadForms();
-    }
+  confirmDelete() {
+  if (this.deleteIndex !== null) {
+    this.store.dispatch(FormActions.deleteForm({ id: this.deleteIndex }));
+    
+    // Show toast
+    this.messageService.add({ severity: 'success', summary: 'Deleted', detail: 'Form deleted successfully!' });
+
+    // Reset dialog state
+    this.displayDelete = false;
+    this.deleteIndex = null;
   }
+}
+
 
   editForm(index: number) {
-    // navigate to builder page with edit id
     this.router.navigate(['/forms'], { queryParams: { editId: index } });
   }
+
   goBack() {
     window.history.back();
   }
