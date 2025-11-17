@@ -1,2 +1,12 @@
-<router-outlet />
-<!-- Root view, must contain <router-outlet> to display route targets. -->
+<div class="app-container">
+  <router-outlet></router-outlet>
+
+  <!-- Floating Bot Button -->
+  <button
+    *ngIf="!isDashboardPage()"
+    class="bot-button"
+    (click)="goToDashboard()"
+  >
+    🤖
+  </button>
+</div>

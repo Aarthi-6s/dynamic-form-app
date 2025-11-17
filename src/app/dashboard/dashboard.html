@@ -1,0 +1,36 @@
+<!-- Back Button -->
+<div class="mb-4" style="margin-left: 16px;">
+  <a 
+    pButton 
+    label="Back to Forms" 
+    icon="pi pi-arrow-left" 
+    class="p-button-lg p-button-secondary" 
+    routerLink="/forms/list">
+  </a>
+</div>
+
+<div class="container my-4">
+  <h2 class="text-center mb-4 text-white">Forms Dashboard</h2>
+
+  <!-- Cards Row -->
+  <div class="row mb-4">
+    <div class="col-md-4 mb-3">
+      <p-card header="Total Forms" class="custom-card">
+        <h3>{{ totalForms }}</h3>
+      </p-card>
+    </div>
+    <div class="col-md-4 mb-3">
+      <p-card header="Mini Forms" class="custom-card">
+        <h3>{{ miniForms }}</h3>
+      </p-card>
+    </div>
+    <div class="col-md-4 mb-3">
+      <p-card header="Dynamic Forms" class="custom-card">
+        <h3>{{ dynamicForms }}</h3>
+      </p-card>
+    </div>
+  </div>
+
+  <!-- Donut Chart -->
+  <div *ngIf="chartOptions" echarts [options]="chartOptions" class="chart-container"></div>
+</div>
